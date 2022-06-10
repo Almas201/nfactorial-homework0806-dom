@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Player</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-size: 17px;
+        }
+        .container {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            color: #f1f1f1;;
+            width: 100%;
+            padding: 20px;
+        }
+        #back {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        h1 {
+            display: flex;
+            color: #7c795d;
+            font-family: 'Trocchi', serif;
+            justify-content: center;
+            align-items: center;
+        }
+        .progress {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        audio{
+            display: block;
+            min-width: 500px;
+            justify-content: center;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+            margin-left: 30px;
+        }
+        .heart {
+            width: 5%;
+            height: 30px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        .play {
+            width: 5%;
+            height: 30px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        .refresh {
+            width: 5%;
+            height: 30px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        .photo {
+            position: relative;
+            display: block;
+            margin: 40px auto;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background-image: url("img/dalida.png");
+            background-size: cover;
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.08);
+                /*animation: rotate 20s linear infinite;*/
+            /*animation-play-state: paused;*/
+        }
+        .photo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #5f7a61;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <video muted loop id="back">
+        <source src="img/back.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <h1>Dalida Player App</h1>
+            <main>
+                <section>
+                    <div class="photo play" id="photo"></div>
+                    <div class="progress">
+                        <audio src="music/music.mp3" id="audio"></audio>
+                        <input type="range" value="0" min="0" max="100" step="1" id="progress"><label for="progress" id="time"></label>
+                        <audio src="music/like.mp3" id="like"></audio>
+                    </div>
+                </section>
+                <section>
+                    <div class="buttons">
+                        <button class="heart" id="heart">♡</button>
+                        <button class="play" id="play">▶</button>
+                        <button class="refresh" id="refresh">🔁</button>
+                    </div>
+                </section>
+            </main>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
